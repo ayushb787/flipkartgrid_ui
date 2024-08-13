@@ -1,0 +1,54 @@
+
+
+.outer-container {
+    text-align: center;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+  
+  #logo1, #logo2{
+    width: 200px;
+    height: auto;
+  }
+  
+  .company-header {
+    font-size: 4vw;
+    margin: 20px 0;
+    color: #2B427E;
+    font-family: 'Merriweather';
+    font-weight: bold;
+  }
+  
+  .container {
+    width: 100%;
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  
+  @media (max-width: 768px) {
+  
+    .company-header {
+      font-size: 30px;
+      font-family: 'Times New Roman';
+    }
+    #logo1{
+      width: 100px;
+      height: auto;
+      margin: 10px;
+    }
+    #logo2{
+      display: none;
+    }
+  }
