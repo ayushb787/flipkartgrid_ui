@@ -9,7 +9,7 @@ const LoginPage = () => {
     const onFinish = async (values) => {
         try {
             const { username, password } = values;
-            const response = await fetch("http://localhost:7000/auth/token", {
+            const response = await fetch("/auth/token", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

@@ -19,7 +19,7 @@ const GetAllApi = () => {
     setLoading(true);
     try {
       const token = localStorage.getItem('token');
-      const url = `http://localhost:7000/apis?limit=${limit}&token=${token}`;
+      const url = `/apis?limit=${limit}&token=${token}`;
 
       const response = await axios.get(url, {
         headers: {

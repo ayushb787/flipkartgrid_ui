@@ -20,7 +20,7 @@ const GetIssues = () => {
     useEffect(() => {
         const fetchUniqueApis = async () => {
             try {
-                const url = `http://localhost:7000/unique-apis?token=${token}`;
+                const url = `/unique-apis?token=${token}`;
                 const response = await axios.get(url, {
                     headers: {
                         "Authorization": `Bearer ${token}`,
@@ -55,7 +55,7 @@ const GetIssues = () => {
         const token = localStorage.getItem('token');
 
         try {
-            const response = await axios.get(`http://localhost:7000/issues/${apiId}?token=${token}`, {
+            const response = await axios.get(`/issues/${apiId}?token=${token}`, {
                 headers: {
                     "Authorization": `Bearer ${token}`,
                 },
@@ -79,7 +79,7 @@ const GetIssues = () => {
 
         try {
             const response = await axios.put(
-                `http://localhost:7000/issues/${selectedApi}/status?token=${token}`,
+                `/issues/${selectedApi}/status?token=${token}`,
                 null,
                 {
                     params: {

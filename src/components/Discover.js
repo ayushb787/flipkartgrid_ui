@@ -20,7 +20,7 @@ const Discover = () => {
         setLoading(true);
 
         const token = localStorage.getItem('token');
-        const url = `http://localhost:7000/apis/discover?token=${token}`;
+        const url = `/apis/discover?token=${token}`;
 
         try {
             const response = await axios.post(url,
