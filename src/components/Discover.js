@@ -1,30 +1,46 @@
 import React, { useState } from "react";
+import { Layout, Typography, Form, Input, Button, Table, Tag, Spin } from 'antd';
+import Navigation from '../components/Navigation';
 import './Discover.css';
-import { Button, Form, Input, Table, Tag, Spin } from 'antd';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+
+
+const { Content, Footer } = Layout;
+const { Title } = Typography;
 
 const Discover = () => {
     const [apiName, setApiName] = useState("");
     const [apiUrl, setApiUrl] = useState("");
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(false);
+    const navigate = useNavigate();
 
     const handleSubmit = async (values) => {
         setLoading(true);
 
-        try {
-            const response = await fetch("http://localhost:7000/apis/discover", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ name: values.apiName, url: values.apiUrl }),
-            });
+        const token = localStorage.getItem('token');
+        const url = `http://localhost:7000/apis/discover?token=${token}`;
 
-            const result = await response.json();
-            console.log(result);
-            setData(result.security_test_results || []);
+        try {
+            const response = await axios.post(url,
+                { name: values.apiName, url: values.apiUrl },
+                {
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                }
+            );
+
+
+            setData(response.data.security_test_results || []);
         } catch (error) {
-            console.error("Error fetching data:", error);
+            if (error.response && error.response.status === 401) {
+                localStorage.removeItem('token');
+                navigate('/login');
+            } else {
+                console.error("Error fetching data:", error);
+            }
         } finally {
             setLoading(false);
         }
@@ -145,70 +161,73 @@ const Discover = () => {
     ];
 
     return (
-        <>
-        <div className="discover-container">
-            <Form
-                name="basic"
-                layout="vertical" // Changed layout to vertical for a cleaner look
-                style={{
-                    maxWidth: 600,
-                    margin: '0 auto', // Center the form
-                }}
-                onFinish={handleSubmit}
-                className="forms-container"
-            >
-                <Form.Item
-                    label="API Name"
-                    name="apiName"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input the API name!',
-                        },
-                    ]}
-                >
-                    <Input />
-                </Form.Item>
+        <Layout style={{ minHeight: '100vh' }}>
+            <Navigation />
+            <Layout style={{ padding: '0 24px', minHeight: '100vh' }}>
+                <Content style={{ padding: '24px', margin: 0 }}>
+                    <Title level={2}>Discover API</Title>
+                    <Form
+                        name="basic"
+                        layout="vertical"
+                        style={{ maxWidth: 600, margin: '0 auto' }}
+                        onFinish={handleSubmit}
+                        className="forms-container"
+                    >
+                        <Form.Item
+                            label="API Name"
+                            name="apiName"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: 'Please input the API name!',
+                                },
+                            ]}
+                        >
+                            <Input value={apiName} onChange={(e) => setApiName(e.target.value)} />
+                        </Form.Item>
 
-                <Form.Item
-                    label="API URL"
-                    name="apiUrl"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input the API URL!',
-                        },
-                    ]}
-                >
-                    <Input />
-                </Form.Item>
+                        <Form.Item
+                            label="API URL"
+                            name="apiUrl"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: 'Please input the API URL!',
+                                },
+                            ]}
+                        >
+                            <Input value={apiUrl} onChange={(e) => setApiUrl(e.target.value)} />
+                        </Form.Item>
 
-                <Form.Item>
-                    <Button type="primary" htmlType="submit" block>
-                        Discover API
-                    </Button>
-                </Form.Item>
-            </Form>
+                        <Form.Item>
+                            <Button type="primary" htmlType="submit" block>
+                                Discover API
+                            </Button>
+                        </Form.Item>
+                    </Form>
 
-            {loading && (
-                <div className="loader-container">
-                    <Spin size="large" />
-                </div>
-            )}
+                    {loading && (
+                        <div className="loader-container">
+                            <Spin size="large" />
+                        </div>
+                    )}
 
-
-            {!loading && data.length > 0 && (
-                <div className="table-container">
-                    <Table
-                        dataSource={data}
-                        columns={columns}
-                        rowKey="id"
-                        pagination={false} // Disable pagination if not needed
-                    />
-                </div>
-            )}
-        </div>
-        </>
+                    {!loading && data.length > 0 && (
+                        <div className="table-container">
+                            <Table
+                                dataSource={data}
+                                columns={columns}
+                                rowKey="id"
+                                pagination={false}
+                            />
+                        </div>
+                    )}
+                </Content>
+                <Footer style={{ textAlign: 'center' }}>
+                    Flipkart Grid 6.0 ©2024 Created by Ayush Bhandari
+                </Footer>
+            </Layout>
+        </Layout>
     );
 };
 

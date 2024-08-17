@@ -1,0 +1,35 @@
+.site-layout-background {
+    background: #fff;
+}
+
+.header {
+    padding: 0;
+    background: #fff;
+}
+
+.company-header {
+    font-size: 4vw;
+    margin: 20px;
+    color: #2B427E;
+    font-family: 'Merriweather';
+    font-weight: bold;
+}
+
+.logo {
+    width: 300px;
+    background: #1890ff;
+    margin: 16px;
+}
+
+.ant-menu-inline .ant-menu-item-selected {
+    background-color: #1890ff;
+    color: #fff;
+}
+
+.ant-menu-item {
+    font-size: 16px;
+}
+
+.ant-layout-footer {
+    text-align: center;
+}
