@@ -4,14 +4,15 @@
     margin: 0 auto;
 }
 
-/* Center loader */
-.loader {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Adjust as needed */
-}
 
+.ant-spin {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    
+  }
+  
 /* Controls styling */
 .controls {
     margin-bottom: 20px; /* Space between controls and table */
@@ -19,11 +20,12 @@
 
 .table-container {
     max-width: 100%;
-    max-height: 500px;
+    max-height: 400px;
     overflow-x: auto;
     overflow-y: auto;
     border: 1px solid #ddd;
     margin-top: 20px;
+    background-color: white;
 }
 
 table {

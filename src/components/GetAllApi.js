@@ -154,7 +154,7 @@ const GetAllApi = () => {
 
       {loading ? (
         <div className="loader">
-          <Spin tip="Loading..." />
+          <Spin size="large" tip="Loading..." />
         </div>
       ) : (
         <div className="table-container">

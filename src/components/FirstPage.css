@@ -1,54 +1,90 @@
-
-
 .outer-container {
-    text-align: center;
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    height: 100vh;
-    width: 100vw;
-    overflow-x: hidden;
-    overflow-y: scroll;
-  }
-  
-  #logo1, #logo2{
-    width: 200px;
-    height: auto;
-  }
-  
+  text-align: center;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  overflow-y: hidden; /* Prevent vertical scrolling */
+}
+
+.header-sec {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%; /* Ensure header takes full width */
+}
+
+#logo1,
+#logo2 {
+  width: 200px;
+  height: auto;
+}
+
+.company-header {
+  font-size: 4vw;
+  margin: 20px ;
+  color: #2B427E;
+  font-family: 'Merriweather';
+  font-weight: bold;
+}
+
+.container {
+  width: 100%;
+  /* padding: 5px; */
+  display: flex;
+  flex-direction: column; /* Align header and tabs vertically */
+  align-items: center; /* Center the contents horizontally */
+  justify-content: flex-start; /* Align items to the top */
+}
+.tab-container{
+  width: 100vw;
+}
+.ant-tabs {
+  margin-top: 20px; /* Space between the company header and tabs */
+  width: 100%; /* Full width for the tabs */
+}
+.ant-spin {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
+}
+
+.ant-tabs-nav {
+  background-color: #fff; /* White background for the tab navigation */
+  border: 1px solid #d9d9d9; /* Light border for the tab navigation */
+  border-radius: 4px; /* Rounded corners */
+}
+
+.ant-tabs-tab {
+  font-weight: bold; /* Bold text for tab labels */
+}
+
+.ant-tabs-tab:hover {
+  color: #1890ff; /* Change text color on hover */
+}
+
+.content {
+  flex: 1; /* Take the remaining space */
+  padding: 20px; /* Padding for the content area */
+  overflow-y: auto; /* Enable vertical scrolling if content overflows */
+}
+
+@media (max-width: 768px) {
   .company-header {
-    font-size: 4vw;
-    margin: 20px 0;
-    color: #2B427E;
-    font-family: 'Merriweather';
-    font-weight: bold;
+    font-size: 30px;
+    font-family: 'Times New Roman';
   }
-  
-  .container {
-    width: 100%;
+  #logo1 {
+    width: 100px;
+    height: auto;
     margin: 10px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
   }
-  
-  @media (max-width: 768px) {
-  
-    .company-header {
-      font-size: 30px;
-      font-family: 'Times New Roman';
-    }
-    #logo1{
-      width: 100px;
-      height: auto;
-      margin: 10px;
-    }
-    #logo2{
-      display: none;
-    }
+  #logo2 {
+    display: none;
   }
+}
+
