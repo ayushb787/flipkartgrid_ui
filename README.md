@@ -1,70 +1,50 @@
-# Getting Started with Create React App
+# Problem Statement: API Security Shield
+Context:
+APIs are vital to modern software systems, enabling integration and communication across
+applications. Ensuring API security is crucial due to the increasing reliance on these interfaces.
+This project challenges you to develop a comprehensive API security solution tailored for a
+modern enterprise.
+Objective:
+Develop a scalable, comprehensive, and user-friendly API security solution that seamlessly
+integrates into an enterprise's Software Development Life Cycle (SDLC), providing robust
+protection against common API security threats and offering a centralised platform for managing
+API security efforts.
+Key Pointers:
+1. API Inventory Management:
+○ Create a system that discovers and inventories all APIs within an organization.
+This system should integrate seamlessly into the SDLC and provide continuous
+updates.
+○ Ensure real-time monitoring to alert the security team of any new APIs added to
+the SDLC.
+2. OWASP Top 10 API Attacks Coverage:
+○ Implement protections against the OWASP Top 10 API security risks, including
+continuous and on-demand scanning options.
+○ Automate regression suites with security objectives.
+3. Dashboard Management View:
+○ Design a centralized dashboard to manage and resolve API security issues,
+offering clear insights into the status and history of each API.
+○ Include detailed reporting features and support for efficiently closing resolved
+issues.
+○ Build the solution on a scalable technology stack as a web application, allowing
+users to login and manage API security remotely.
+○ Ensure the solution can handle an increasing number of APIs and security
+checks as the organization grows.
+Deliverables:
+1. A fully functional web application demonstrating the above features.
+2. A simulated SDLC environment showcasing the integration and effectiveness of your
+API inventory management system, with an emphasis on discovery.
+3. Documentation outlining the architecture, design decisions, and user instructions.
+4. A presentation detailing your approach, implementation, and key findings.
+Evaluation Criteria:
+● Effectiveness of the API inventory management system.
+● Real-time monitoring capabilities.
+● Coverage and effectiveness of OWASP Top 10 API security scans.
+● Usability and functionality of the dashboard.
+● Scalability and robustness of the web application.
+● Quality and clarity of documentation and presentation
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# My solution ->
+This repository contains React UI which works on set of API backend to display API Test details, Issue status of APIs, And helps conduct API tests.
+I have used ANT Design Components for simplicity in UI.
