@@ -165,7 +165,7 @@ const GetIssues = () => {
                     <div className="logo" />
                 </Header> */}
                 <Content style={{ padding: '24px', margin: 0 }}>
-                    <Title level={2}>All APIs</Title>
+                    <Title level={2}>Issues</Title>
                     <div className='issues-container'>
                         <div className='issues-dropdown'>
                             <Dropdown overlay={menu} >

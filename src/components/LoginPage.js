@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Form, Input, Button, Alert } from 'antd';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const LoginPage = () => {
     const [error, setError] = useState('');
@@ -9,15 +10,13 @@ const LoginPage = () => {
     const onFinish = async (values) => {
         try {
             const { username, password } = values;
-            const response = await fetch("/auth/token", {
-                method: "POST",
+            const response = await axios.post("/auth/token", { username, password }, {
                 headers: {
                     "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ username, password }),
+                }
             });
-
-            const data = await response.json();
+    
+            const data = response.data;
             console.log(data);
             if (data.access_token) {
                 localStorage.setItem('token', data.access_token);
